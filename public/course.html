@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management — VEI NEXUS</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/teacher.css">
+    <link rel="stylesheet" href="/public/css/course.css">
+    <script src="/public/js/config.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script  src="/public/js/course.js" defer></script>
+    
+
+</head>
+<body class="teacher-page">
+    <div class="bg_grid"></div>
+    <div class="bg_watermark"></div>
+    <div class="dashboard-wrapper">
+
+
+
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+
+            
+            <div class="sidebar-header">
+                <img src="/public/assets/images/logo_white.png" alt="VEI Logo">
+                <h2>VEI NEXUS</h2>
+            </div>
+
+            
+            <ul class="nav-links">
+                <li class="info" onclick="clicked('info')">
+                    <button>
+                        INFO
+                    </button>
+                </li>
+                <li class="general" onclick="clicked('general')">
+                    <button>
+                        GENERAL
+                    </button>
+                </li>
+                <li class="attendance" onclick="clicked('attendance')">
+                    <button>
+                        ATTENDANCE
+                    </button>
+                </li>
+                <li class="students" onclick="clicked('students')">
+                    <button>
+                        STUDENTS
+                    </button>
+                </li>
+                <!-- <li class="marks" onclick="clicked('marks')"> 
+                    <button>
+                        MARKS
+                    </button>
+                </li> -->
+                <li>
+                    <a href="#" onclick="goback()" class="back-btn">
+                        BACK
+                    </a>
+                </li>
+                
+            </ul>
+
+            
+          <div class="section-name course_i">
+                <div class="course-identity">
+                    <span class="course-title"></span>
+                </div>
+                <div class="teacher-identity">
+                        <span class="teacher-name"></span>
+                        <span class="teacher-id"></span>
+                    </div>
+            </div>
+        </nav>
+
+        
+        <div class="content-container">
+
+        
+            <div class="course-content">
+
+                
+                <section class="course-section " id="section-marks">
+                    <div class="section-header">
+                        <button class="action-btn">+ ADD MARKS</button>
+                    </div>
+                    <div class="nexus-card">
+                    
+                    </div>
+                </section>
+
+
+                
+
+<section class="course-section" id="section-general">
+
+    <div class="section-header">
+        <button class="action-btn" id="openPostModal">+ POST</button>
+    </div>
+
+    <div class="post-feed" id="postFeed">
+
+    </div>
+
+
+    <div id="post_not" class="not_available">
+        <p>NO POSTS YET</p>
+        <span>Click + POST to make your first announcement or share a resource.</span>
+    </div>
+
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="post-modal">
+            <div class="modal-header">
+                <span class="modal-title">NEW POST </span>
+                
+                <button class="modal-close" id="closeModal">x
+                </button>            
+            </div>
+            <div class="badge-selector">
+                <button class="badge-opt active" data-badge="ANNOUNCEMENT">ANNOUNCEMENT</button>
+                <button class="badge-opt" data-badge="RESOURCE">RESOURCE</button>
+            </div>
+            <input required type="text" class="modal-input" id="postTitle" placeholder="Title" maxlength="80"/>
+            <textarea required class="modal-textarea" id="postText" placeholder="Write something..." rows="4"></textarea>
+            <input type="url" class="modal-input" id="postLink" placeholder="Paste a link (optional)"/>
+            <button class="action-btn modal-submit" id="submitPost">POST</button>
+        </div>
+    </div>
+    
+</section>
+
+
+
+
+<section class="course-section" id="section-attendance">
+    <div class="section-header">
+        <div class="att-controls">
+            <button class="action-btn" id="addDateBtn">+ ADD DATE</button>
+            <button class="save-btn" id="saveAttBtn" style="display:none;">SAVE</button>
+        </div>
+    </div>
+
+    <div class="date-nav" id="dateNav" style="display:none;">
+        <button class="date-nav-btn" id="prevWindow">&#8592;</button>
+        <span class="date-window-label" id="windowLabel"></span>
+        <button class="date-nav-btn" id="nextWindow">&#8594;</button>
+    </div>
+
+    <div class="nexus-card att-card">
+        <div class="att-scroll">
+            <table class="att-table" id="attTable">
+                <thead>
+                    <tr id="attHeaderRow">
+                    </tr>
+                </thead>
+                <tbody id="attBody">
+                </tbody>
+            </table>
+
+            <div class="att-empty" id="attEmpty">
+                <p>NO DATES ADDED YET</p>
+                <span>Click + ADD DATE to record your first session.</span>
+            </div>
+        </div>
+    </div>
+
+    
+ <div class="modal-overlay" id="dateModalOverlay">
+    <div class="post-modal">
+        <div class="modal-header">
+            <span class="modal-title">ADD DATE</span>
+            <button class="modal-close" id="closeDateModal">
+                
+            </button>
+        </div>
+        <div class="date-modal-options">
+            <button class="badge-opt active" id="useTodayBtn">USE TODAY</button>
+            <button class="badge-opt" id="useCustomBtn">CUSTOM DATE</button>
+        </div>
+        <div class="custom-date-wrap" id="customDateWrap" style="display:none;">
+            <input type="date" class="modal-input" id="customDateInput"/>
+        </div>
+        <div class="date-preview" id="datePreview">
+        </div>
+        <button class="action-btn modal-submit" id="confirmDateBtn">ADD</button>
+
+    </div>
+</div>
+
+<div class="modal-overlay" id="deleteDateOverlay">
+    <div class="post-modal">
+        <div class="modal-header">
+            <span class="modal-title">DELETE DATE</span>
+            <button class="modal-close" id="closeDeleteModal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="date-preview-box" style="margin-top:4px;">
+            <span class="preview-weekday">ARE YOU SURE?</span>
+            <span class="preview-date" id="deleteDateLabel"></span>
+        </div>
+
+        <p style="font-size:0.72rem; color:var(--greyish); line-height:1.6; text-align:center;">
+            This will permanently remove this date and all attendance records for it.
+        </p>
+
+      <div style="display:flex; gap:10px;">
+    <button class="delete-cancel-btn" id="cancelDeleteBtn">CANCEL</button>
+    <button class="delete-confirm-btn" id="confirmDeleteBtn">DELETE</button>
+</div>
+    </div>
+</div>
+</section>
+
+                <section class="course-section" id="section-students">
+                    <div class="section-header">
+                        
+                        <span class="count-badge"></span>
+                    </div>
+                <div class="nexus-card" id="student_card">
+                    <table class="student_tables data-table" >
+                            <thead>
+                                <tr>
+                                    
+                                    <th>NAME</th>
+                                    <th>STUDENT ID</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody class="tbody_class">
+                               
+                            </tbody>
+                    </table>
+                    
+                </div>
+                
+                <div id="student_not" class="not_available" >
+                    <p>NO STUDENT YET</p>
+                </div>
+            </section>
+
+                <section class="course-section " id="section-info">
+                
+                    <div class="nexus-card general-info">
+                        <h3 class="widget-title">INFO</h3>
+                        <div class="profile-row">
+                            <span class="profile-label">COURSE NAME</span>
+                            <span class="profile-value"></span>
+                        </div>
+                        <div class="profile-row">
+                            <span class="profile-label">SUBJECT NAME</span>
+                            <span class="profile-value"></span>
+                        </div>
+                        <div class="profile-row">
+                            <span class="profile-label">SUBJECT CODE</span>
+                            <span class="profile-value"></span>
+                        </div>
+                        <div class="profile-row">
+                            <span class="profile-label">INSTRUCTOR</span>
+                            <span class="profile-value"></span>
+                        </div>
+                        <div class="profile-row">
+                            <span class="profile-label">ENROLLED</span>
+                            <span class="profile-value"></span>
+                        </div>
+                        <div class="profile-row">
+                            <span class="profile-label">STARTED</span>
+                       
+                            <span class="profile-value"></span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="msg-box"></div>
+
+    
+</body>
+</html>

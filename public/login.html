@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — VEI NEXUS</title>
+    <link rel="stylesheet" href="/public/css/login.css">
+    <script src="/public/js/config.js"></script>
+    <script src="/public/js/login.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+
+    <div class="bg_pattern"></div>
+    <div class="bg_grid"></div>
+    
+
+    <main>
+        <nav>
+            <div>
+                <div class="logo">
+                    <img src="/public/assets/images/logo_white.png" alt="">
+                </div>
+                <div>
+                    <p>VEI NEXUS</p>
+                    <p>VIRTUAL EDUCATION INSTITUTE</p>
+                </div>
+            </div>
+            <div>
+                <a id="a-tag" href="/index.html">BACK TO MAIN</a>
+            </div>
+        </nav>
+        <div class="line"></div>
+
+        <div class="login-wrapper">
+            <div class="login-card">
+
+                <!-- STEP 1: Choose role -->
+                <div class="step active" id="step-role">
+                    <p class="login-title">VEI NEXUS</p>
+                    <h1 class="login-heading">Welcome back.</h1>
+                    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em;">
+                        Who are you logging in as?
+                    </p>
+                    <div class="role-grid">
+                        <button class="role-btn" onclick="selectRole('teacher')">
+                            <span class="role-icon">🎓</span>
+                            <div class="role-name">Teacher</div>
+                            <div class="role-label">Faculty</div>
+                        </button>
+                        <button class="role-btn" onclick="selectRole('student')">
+                            <span class="role-icon">📚</span>
+                            <div class="role-name">Student</div>
+                            <div class="role-label">Enrolled</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Teacher login -->
+                <div class="step" id="step-teacher">
+                    <button class="back-btn" onclick="goBack()">← Back</button>
+                    <div class="role-badge">🎓 Teacher</div>
+                    <h2 class="login-heading" style="font-size: 1.3rem; margin-bottom: 1.5rem;">
+                        Faculty Login
+                    </h2>
+                    <div class="form-group">
+                        <label class="form-label" for="teacher-id">Teacher ID</label>
+                        <input class="form-input" type="text" id="teacher-id" placeholder="e.g. 234T-VE">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="teacher-pass">Password</label>
+                        <div class="input-box">
+                            <input class="form-input form-input2" type="password" id="teacher-pass" placeholder="Enter your password">
+                            <i class="fa-regular fa-eye toggle-password" onclick="toggle_pass('teacher-pass',this)"></i>
+                    
+                        </div>
+                    </div>
+                    <p class="error-msg" id="teacher-error">Invalid ID or password. Please try again.</p>
+                    <button class="submit-btn" onclick="handleLogin('teacher')">LOGIN</button>
+                </div>
+
+                <!-- STEP 2: Student login -->
+                <div class="step" id="step-student">
+                    <button class="back-btn" onclick="goBack()">← Back</button>
+                    <div class="role-badge">📚 Student</div>
+                    <h2 class="login-heading" style="font-size: 1.3rem; margin-bottom: 1.5rem;">
+                        Student Login
+                    </h2>
+                    <div class="form-group">
+                        <label class="form-label" for="student-roll">Roll Number</label>
+                        <input class="form-input" type="text" id="student-roll" placeholder="e.g. VE-101">
+                    </div>
+                   <div class="form-group">
+                        <label class="form-label" for="teacher-pass">Password</label>
+                        <div class="input-box">
+                            <input class="form-input form-input2" type="password" id="student-pass" placeholder="Enter your password">
+                            <i class="fa-regular fa-eye toggle-password" onclick="toggle_pass('student-pass',this)"></i>
+                    
+                        </div>
+                    </div>
+                    <p class="error-msg" id="student-error">Invalid roll number or password. Please try again.</p>
+                    <button class="submit-btn" onclick="handleLogin('student')">LOGIN</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <div id="msg-box"></div>
+
+</body>
+</html>

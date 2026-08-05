@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..700&display=swap'); /* Added Orbitron import */
+
+@font-face {
+    font-family: dmsans;
+    src: url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&display=swap');
+}
+
+
+
+:root {
+    --midnight: #0A111E;
+    --bright: #5ECBF0;
+    --glow: rgba(94, 203, 240, 0.18);
+    --text: #E8F1FA;
+    --greyish: #637D96;
+    --card-bg: rgba(31, 43, 58, 0.4);
+}
+
+.registration-page {
+    background-color: var(--midnight);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+}
+
+.reg-container {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.arrow{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.arrow>.arrow2>a{
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none   ;
+}
+.arrow>.arrow2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem;
+    
+    
+    border-radius: 0.3rem; /* Increased border-radius */
+    font-family: Syne;
+    font-weight: 300; /* Increased font-weight */
+    font-size: 1.5rem; /* Increased font size */
+    text-decoration: none;
+    color: var(--greyish);
+    transition: all 0.3s ease-in-out; /* Standard transition */
+    border: 1px solid transparent; 
+
+}
+
+.arrow2:hover{
+    color: var(--text);
+    transform: scale(1.03); /* Slightly reduced scale */
+    border-color: rgba(94, 203, 240, 0.3); /* Added border on hover */
+    background-color: rgba(94, 203, 240, 0.05); /* Added subtle background on hover */
+}
+
+.arrow2{
+    cursor: none;
+    transform: scale(0.98); /* Added active effect */
+}
+
+.reg-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.reg-logo {
+    width: 80px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px var(--bright));
+}
+
+.glow-text {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 4px;
+    font-size: 2.5rem;
+}
+
+.glow-text span {
+    color: var(--bright);
+    text-shadow: 0 0 20px var(--bright);
+}
+
+.reg-subtitle {
+    color: var(--greyish);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.nexus-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(145, 168, 195, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    transition: 0.3s;
+}
+
+.nexus-card:hover {
+    border-color: rgba(94, 203, 240, 0.3);
+    box-shadow: 0 10px 40px -15px rgba(0,0,0,0.5);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.card-header .icon {
+    font-family: 'Orbitron';
+    color: var(--bright);
+    font-size: 1.2rem;
+    border: 1px solid var(--bright);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.card-header h2 {
+    font-family: 'Orbitron';
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-size: 0.85rem;
+    color: var(--greyish);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.req { color: var(--bright); }
+
+input, select {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(145, 168, 195, 0.2);
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'Syne';
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--bright);
+    box-shadow: 0 0 15px var(--glow);
+}
+
+.toggle-group {
+    display: flex;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+.toggle-btn {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(145, 168, 195, 0.2);
+    color: var(--greyish);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Orbitron';
+    transition: 0.3s;
+}
+
+.toggle-btn.active {
+    background: var(--bright);
+    color: var(--midnight);
+    border-color: var(--bright);
+    box-shadow: 0 0 15px var(--glow);
+}
+
+.add-btn {
+    background: transparent;
+    border: 1px dashed var(--bright);
+    color: var(--bright);
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Orbitron';
+    font-size: 0.8rem;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.submit-btn {
+    background: var(--bright);
+    color: var(--midnight);
+    border: none;
+    padding: 1.2rem 4rem;
+    font-family: 'Orbitron';
+    font-weight: 900;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    box-shadow: 0 5px 25px var(--glow);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 35px var(--bright);
+}
+
+.note {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--greyish);
+}
+
+.reg-footer-text {
+    text-align: center;
+    padding: 2rem;
+    color: var(--greyish);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+
+
+
+#msg-box{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+    max-width: 90%;
+    padding: 14px 18px;     
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 0.1rem;
+    background: rgba(94, 203, 240, 0.18);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--bright);
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    transform: translateY(-120px);
+    opacity: 0;
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+#msg-box.show{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#msg-box.error i{
+    color: red;
+
+}
+
+#msg-box.success i{
+    color:#22B33A;
+}
+
+
+
+
+
+@media (max-width:376px) {
+    main{
+        width: 100%;
+    }
+    .card{
+        width: auto;
+    }
+    input{
+        width: 70%;
+    }
+}
+
+
+.remove-btn{
+    color:red;
+}
+
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    opacity: 0.9;
+}
+
+

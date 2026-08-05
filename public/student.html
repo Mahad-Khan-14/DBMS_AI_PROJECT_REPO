@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard — VEI NEXUS</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="/public/css/teacher.css">
+    <link rel="stylesheet" href="/public/css/student.css">
+    <script src="/public/js/config.js"></script>
+    <script src="/public/js/student.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="dashboard-page">
+    <div class="bg_grid"></div>
+    <div class="bg_watermark"></div>
+    <div id="msg-box"></div>
+
+
+
+
+    <div class="dashboard-wrapper">
+
+        <!-- LEFT SIDEBAR -->
+        <nav class="sidebar" >
+            <div class="sidebar-header">
+                <img src="/public/assets/images/logo_white.png" alt="VEI Logo">
+                <h2>VEI NEXUS</h2>
+            </div>
+
+            <ul class="nav-links" >
+                <li><button class="profile_btn" onclick="showsection('profile')">PROFILE</button></li>
+                <!-- <li><button class="general_btn" onclick="showsection('general')">GENERAL</button></li> -->
+                <li><button class="course_btn" onclick="showsection('courses')" >COURSES</button></li>
+                <li><a href="#" onclick="logout()" class="logout-btn">LOGOUT</a></li>
+            </ul>
+            <div class="section-name">
+                <span class="student-name"></span>
+                <span class="student-id"></span>
+            </div>
+        </nav>
+
+        <div class="parent">
+
+<div class=" content-container" >
+
+                <div id="courses" class=" sec dashboard-grid">
+                    <main class="main-feed">
+                        <div class="course-list">                  
+                        </div>
+                        <div id="course_not" class="not_available">
+                            <p>NO COURSES ASSIGNED</p>
+                    </div>
+                    </main>
+                </div>
+    
+<div id="profile" class="sec nexus-card teacher-profile-card">
+    <h3 class="widget-title">PROFILE</h3>
+    <div class="profile-grid">
+
+        <div class="profile-section-label">PERSONAL</div>
+
+        <div class="profile-row">
+            <span class="profile-label">FULL NAME</span>
+            <span id="student-fullname" class="profile-value"></span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">FATHER NAME</span>
+            <span id="student-fathername" class="profile-value"></span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">DATE OF BIRTH</span>
+            <span id="student-dob" class="profile-value"></span>
+        </div>
+
+        <div class="profile-section-label">ACADEMIC</div>
+
+        <div class="profile-row">
+            <span class="profile-label">STUDENT ID</span>
+            <span id="student-rollno" class="profile-value"></span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">GRADE LEVEL</span>
+            <span id="student-grade" class="profile-value"></span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">CLASS YEAR</span>
+            <span id="student-classyear" class="profile-value"></span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">STATUS</span>
+            <span id="student-status" class="profile-value"></span>
+        </div>
+
+        <div class="profile-section-label">CONTACT</div>
+
+        <div class="profile-row">
+            <span class="profile-label">GUARDIAN CONTACT</span>
+            <span id="student-contact" class="profile-value"></span>
+        </div>
+        <div class="profile-row">
+            <span class="profile-label">DATE OF REGISTRATION</span>
+            <span id="student-reg" class="profile-value"></span>
+        </div>
+
+    </div>
+</div>    
+            </div>
+        </div>
+    </div>
+</body>
+</html>
